@@ -24,11 +24,11 @@ def create_app(config_objects):
     login_manager.init_app(app)
 
     # Load views
-    from application.views import general
-    from application.views import errors
+    from application.views import general, errors, users
 
     app.register_blueprint(general.blueprint)
     app.register_blueprint(errors.blueprint)
+    app.register_blueprint(users.blueprint)
 
     # Error Pages
     @app.errorhandler(404)

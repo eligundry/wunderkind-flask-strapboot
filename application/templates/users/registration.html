@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% from "partials/forms.html" import form_field %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<form action='' method='post'>
+    <fieldset>
+        <legend>Sign Up</legend>
+		{{ form_field(form.first_name) }}
+		{{ form_field(form.last_name) }}
+    </fieldset>
+</form>
+{% endblock %}

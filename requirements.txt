@@ -5,10 +5,12 @@ Flask-RESTful==0.2.12
 Flask-SQLAlchemy==1.0
 Flask-Script==0.6.7
 Flask-Testing==0.4.1
+Flask-WTF==0.9.4
 Jinja2==2.7.2
 MarkupSafe==0.19
 Pygments==1.6
 SQLAlchemy==0.9.3
+WTForms==1.0.5
 Werkzeug==0.9.4
 aniso8601==0.82
 blinker==1.3
