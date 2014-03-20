@@ -27,3 +27,6 @@ class User(db.Model, UserMixin):
 
     def set_password(self, password):
         self.password = bcrypt.generate_password_hash(password)
+
+    def is_active(self):
+        return True if self.is_active_user is None else self.is_active_user

@@ -26,6 +26,7 @@ def server():
 
 @manager.command
 def tests(label=None):
+    "Run the unit tests for the application"
     kwargs = {}
 
     if label is not None:
