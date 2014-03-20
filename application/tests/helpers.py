@@ -13,3 +13,9 @@ class ApplicationDBTestCase(ApplicationTestCase):
     def tearDown(self):
         db.session.remove()
         db.drop_all()
+
+class PageMixin(object):
+    def assert_page(self, url, template):
+        response = self.client.get(url)
+        self.assert_200(response)
+        self.assert_template_used(template)
