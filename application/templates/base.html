@@ -6,7 +6,11 @@
 	</head>
 
 	<body>
-		<header role='banner'></header>
+		<header role='banner'>
+			<a href='/'>
+				<h1>{{ config['SITE_TITLE'] }}</h1>
+			</a>
+		</header>
 
 		<main role='main'>
 			{% block content %}{% endblock %}
