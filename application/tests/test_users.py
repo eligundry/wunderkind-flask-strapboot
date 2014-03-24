@@ -1,5 +1,5 @@
-from application import db
-from application.models import User, load_user
+from application.models import *
+from application.models.user import User, load_user
 from application.tests.helpers import ApplicationTestCase, ApplicationDBTestCase
 
 class UserTests(ApplicationDBTestCase):

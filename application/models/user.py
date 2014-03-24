@@ -1,8 +1,7 @@
 from flask.ext.login import UserMixin
-from sqlalchemy import types
-from sqlalchemy.orm import subqueryload
 
-from application import db, bcrypt, login_manager
+from application import login_manager
+from application.models import *
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -16,7 +15,6 @@ class User(db.Model, UserMixin):
 
     def __init__(self, **columns):
         password = columns.pop('password', None)
-
         if password is not None:
             pass
 
