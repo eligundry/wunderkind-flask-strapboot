@@ -34,8 +34,12 @@ def create_app(config_objects=['application.settings.site']):
 
     # Configure Flask-Assets
     assets.config['less_bin'] = '/usr/bin/lessc'
-    bootstrap_less = Bundle('css/bootstrap/bootstrap.less', filters='less', output='compiled/css/main.css')
+
+    bootstrap_less = Bundle('css/bootstrap/bootstrap.less', filters='less,cssmin', output='compiled/css/main.css')
+    bootstrap_js = Bundle('js/bootstrap/*', filters='rjsmin', output='compiled/js/main.js')
+
     assets.register('bootstrap_less', bootstrap_less)
+    assets.register('bootstrap_js', bootstrap_js)
 
     # Error Pages
     @app.errorhandler(404)
