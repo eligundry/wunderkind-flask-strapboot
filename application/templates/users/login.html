@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% from "partials/forms.html" import form_field %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form role='form' method='post'>
+	<fieldset>
+		<legend>Login</legend>
+		{{ form_field(form.email) }}
+		{{ form_field(form.password) }}
+		<button type="submit" class="btn btn-success">Login</button>
+	</fieldset>
+</form>
+{% endblock %}

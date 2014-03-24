@@ -8,3 +8,8 @@ blueprint = Blueprint('users', __name__)
 def sign_up():
     form = RegistrationForm()
     return render_template('users/registration.html', form=form)
+
+@blueprint.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    return render_template('users/login.html', form=form)

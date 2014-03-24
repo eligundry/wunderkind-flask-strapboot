@@ -4,7 +4,7 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<form action='' method='post' role='form'>
+<form method='post' role='form'>
     <fieldset>
         <legend>Sign Up</legend>
 		{{ form_field(form.first_name) }}
@@ -12,7 +12,7 @@
 		{{ form_field(form.email) }}
 		{{ form_field(form.password) }}
 		{{ form_field(form.confirm_password) }}
-		<input type="submit" value="Register" />
+		<button type="submit" class="btn btn-success">Register</button>
     </fieldset>
 </form>
 {% endblock %}
