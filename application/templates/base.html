@@ -10,11 +10,26 @@
 		{% endassets %}
 	</head>
 
-	<body>
-		<header role='banner'>
-			<a href='/'>
-				<h1>{{ config['SITE_TITLE'] }}</h1>
-			</a>
+	<body class='container'>
+		<header class='navbar navbar-default' role='banner'>
+			<div class='container-fluid'>
+				<div class='navbar-header'>
+				    <button data-toggle='collapse' type='button' data-target='top-navbar' class='button navbar-toggle'>
+				        <span class='sr-only'>Toggle Navigation</span>
+				        <span class='icon-bar'></span>
+				        <span class='icon-bar'></span>
+				        <span class='icon-bar'></span>
+				    </button>
+					<a href='/' class='navbar-brand'>{{ config['SITE_TITLE'] }}</a>
+				</div>
+
+				<nav class='collapse navbar-collapse' id='top-navbar'>
+				    <ul class='nav navbar-nav navbar-right'>
+						<li><a href="/sign-up">Sign Up</a></li>
+						<li><a href="/login">Login</a></li>
+				    </ul>
+				</nav>
+			</div>
 		</header>
 
 		<main role='main'>

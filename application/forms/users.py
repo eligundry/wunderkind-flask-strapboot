@@ -5,7 +5,7 @@ from wtforms import (Field, TextField, TextAreaField, PasswordField,
 from wtforms.validators import Required, Length, Email, EqualTo
 
 class RegistrationForm(Form):
-    first_name = TextField(u'First Name', [Required()])
+    first_name = TextField(label=u'First Name', validators=[Required()])
     last_name = TextField(u'Last Name', [Required()])
     email = TextField(u'Email', [Required(), Email()])
     password = PasswordField(u'Password', [Required(), EqualTo('confirm_password')])
