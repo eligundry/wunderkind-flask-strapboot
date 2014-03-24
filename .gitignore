@@ -1,2 +1,5 @@
 *.pyc
 application/settings/site.py
+application/static/.webassets-cache
+application/static/compiled/*
+!application/static/compiled/.gitkeep

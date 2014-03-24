@@ -5,7 +5,7 @@ from flask.ext.script import Manager, prompt, prompt_bool, prompt_pass
 from application import create_app, db, models
 from application.tests import run_tests
 
-app = create_app(['application.settings.site'])
+app = create_app()
 manager = Manager(app)
 
 @manager.shell

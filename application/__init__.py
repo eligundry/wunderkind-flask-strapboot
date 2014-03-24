@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask.ext import restful
+from flask.ext.assets import Environment, Bundle
 from flask.ext.bcrypt import Bcrypt
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.login import LoginManager
@@ -9,7 +10,7 @@ bcrypt = Bcrypt()
 db = SQLAlchemy()
 login_manager = LoginManager()
 
-def create_app(config_objects):
+def create_app(config_objects=['application.settings.site']):
     app = Flask(__name__)
 
     # Add the settings object to Flask
@@ -18,6 +19,7 @@ def create_app(config_objects):
 
     # Initalize objects for the application
     api.Api(app)
+    assets = Environment(app)
     bcrypt.init_app(app)
     db.init_app(app)
     db.configure_mappers()
@@ -29,6 +31,11 @@ def create_app(config_objects):
     app.register_blueprint(general.blueprint)
     app.register_blueprint(errors.blueprint)
     app.register_blueprint(users.blueprint)
+
+    # Configure Flask-Assets
+    assets.config['less_bin'] = '/usr/bin/lessc'
+    bootstrap_less = Bundle('css/bootstrap/bootstrap.less', filters='less', output='compiled/css/main.css')
+    assets.register('bootstrap_less', bootstrap_less)
 
     # Error Pages
     @app.errorhandler(404)

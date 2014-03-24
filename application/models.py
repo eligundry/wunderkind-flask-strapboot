@@ -2,7 +2,7 @@ from flask.ext.login import UserMixin
 from sqlalchemy import types
 from sqlalchemy.orm import subqueryload
 
-from application import db, bcrypt
+from application import db, bcrypt, login_manager
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -30,3 +30,7 @@ class User(db.Model, UserMixin):
 
     def is_active(self):
         return True if self.is_active_user is None else self.is_active_user
+
+@login_manager.user_loader
+def load_user(userid):
+    return User.query.get(userid)

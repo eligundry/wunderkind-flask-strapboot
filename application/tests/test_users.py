@@ -1,5 +1,5 @@
 from application import db
-from application.models import User
+from application.models import User, load_user
 from application.tests.helpers import ApplicationTestCase, ApplicationDBTestCase
 
 class UserTests(ApplicationDBTestCase):
@@ -31,3 +31,8 @@ class UserTests(ApplicationDBTestCase):
 
         db.session.add(user)
         db.session.commit()
+
+    def test_load_user(self):
+        test_user = load_user(1)
+        user = User.query.get(1)
+        self.assertEqual(test_user, user)
